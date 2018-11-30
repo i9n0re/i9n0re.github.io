@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Gurdzain 博客
+title: i9n0re 博客
 subtitle: 
 description:
 keywords:
-author: Gurdzain
+author: i9n0re
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://gurdzain.github.io/
+url: https://i9n0re.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -79,5 +79,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:GurdZain/gurdzain.github.io.git
+  repo: https://github.com/i9n0re/i9n0re.github.io.git
   branch: master

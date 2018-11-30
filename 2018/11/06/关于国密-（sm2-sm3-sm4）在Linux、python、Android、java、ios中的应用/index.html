@@ -5,21 +5,24 @@
   
 
   
-  <title>关于国密 （sm2,sm3,sm4）在Linux、python、Android、java、ios中的应用 | Gurdzain 博客</title>
+  <title>关于国密 （sm2,sm3,sm4）在Linux、python、Android、java、ios中的应用 | i9n0re 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于国密 （sm2,sm3,sm4）在Linux、python、Android、java、ios中的应用什么是国密？openssl的编程初探开源算法（gmsll.org）evp api的使用方法java API的使用方法（Android）python 调用方法结合python与javaios使用方法小结">
+  <meta name="description" content="关于国密开源库（GmSSL）在Linux、python、Android、java、ios中的应用什么是国密？国密即国家密码局认定的国产密码算法。主要有SM1，SM2，SM3，SM4和最新的sm9。在国内环境主要使用的国家密码局认定的算法。 SM2算法：SM2椭圆曲线公钥密码算法是我国自主设计的公钥密码算法，包括SM2-1椭圆曲线数字签名算法，SM2-2椭圆曲线密钥交换协议，SM2-3椭圆曲线公钥加">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于国密 （sm2,sm3,sm4）在Linux、python、Android、java、ios中的应用">
-<meta property="og:url" content="https://gurdzain.github.io/2018/11/06/关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用/index.html">
-<meta property="og:site_name" content="Gurdzain 博客">
-<meta property="og:description" content="关于国密 （sm2,sm3,sm4）在Linux、python、Android、java、ios中的应用什么是国密？openssl的编程初探开源算法（gmsll.org）evp api的使用方法java API的使用方法（Android）python 调用方法结合python与javaios使用方法小结">
+<meta property="og:url" content="https://i9n0re.github.io/2018/11/06/关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用/index.html">
+<meta property="og:site_name" content="i9n0re 博客">
+<meta property="og:description" content="关于国密开源库（GmSSL）在Linux、python、Android、java、ios中的应用什么是国密？国密即国家密码局认定的国产密码算法。主要有SM1，SM2，SM3，SM4和最新的sm9。在国内环境主要使用的国家密码局认定的算法。 SM2算法：SM2椭圆曲线公钥密码算法是我国自主设计的公钥密码算法，包括SM2-1椭圆曲线数字签名算法，SM2-2椭圆曲线密钥交换协议，SM2-3椭圆曲线公钥加">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-06T13:33:28.109Z">
+<meta property="og:image" content="https://i9n0re.github.io/2018/11/06/关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用/media/15426078151794.jpg">
+<meta property="og:image" content="https://i9n0re.github.io/2018/11/06/关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用/media/15426077534504.jpg">
+<meta property="og:updated_time" content="2018-11-22T01:55:28.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于国密 （sm2,sm3,sm4）在Linux、python、Android、java、ios中的应用">
-<meta name="twitter:description" content="关于国密 （sm2,sm3,sm4）在Linux、python、Android、java、ios中的应用什么是国密？openssl的编程初探开源算法（gmsll.org）evp api的使用方法java API的使用方法（Android）python 调用方法结合python与javaios使用方法小结">
+<meta name="twitter:description" content="关于国密开源库（GmSSL）在Linux、python、Android、java、ios中的应用什么是国密？国密即国家密码局认定的国产密码算法。主要有SM1，SM2，SM3，SM4和最新的sm9。在国内环境主要使用的国家密码局认定的算法。 SM2算法：SM2椭圆曲线公钥密码算法是我国自主设计的公钥密码算法，包括SM2-1椭圆曲线数字签名算法，SM2-2椭圆曲线密钥交换协议，SM2-3椭圆曲线公钥加">
+<meta name="twitter:image" content="https://i9n0re.github.io/2018/11/06/关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用/media/15426078151794.jpg">
   
-    <link rel="alternate" href="/atom.xml" title="Gurdzain 博客" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="i9n0re 博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -38,7 +41,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Gurdzain 博客</a>
+        <a href="/" id="logo">i9n0re 博客</a>
       </h1>
       
     </div>
@@ -58,7 +61,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gurdzain.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://i9n0re.github.io"></form>
       </div>
     </div>
   </div>
@@ -86,11 +89,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用"><a href="#关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用" class="headerlink" title="关于国密 （sm2,sm3,sm4）在Linux、python、Android、java、ios中的应用"></a>关于国密 （sm2,sm3,sm4）在Linux、python、Android、java、ios中的应用</h1><h2 id="什么是国密？"><a href="#什么是国密？" class="headerlink" title="什么是国密？"></a>什么是国密？</h2><h2 id="openssl的编程初探"><a href="#openssl的编程初探" class="headerlink" title="openssl的编程初探"></a>openssl的编程初探</h2><h2 id="开源算法（gmsll-org）"><a href="#开源算法（gmsll-org）" class="headerlink" title="开源算法（gmsll.org）"></a>开源算法（gmsll.org）</h2><h2 id="evp-api的使用方法"><a href="#evp-api的使用方法" class="headerlink" title="evp api的使用方法"></a>evp api的使用方法</h2><h2 id="java-API的使用方法（Android）"><a href="#java-API的使用方法（Android）" class="headerlink" title="java API的使用方法（Android）"></a>java API的使用方法（Android）</h2><h2 id="python-调用方法"><a href="#python-调用方法" class="headerlink" title="python 调用方法"></a>python 调用方法</h2><h2 id="结合python与java"><a href="#结合python与java" class="headerlink" title="结合python与java"></a>结合python与java</h2><h2 id="ios使用方法"><a href="#ios使用方法" class="headerlink" title="ios使用方法"></a>ios使用方法</h2><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>
+        <h1 id="关于国密开源库（GmSSL）在Linux、python、Android、java、ios中的应用"><a href="#关于国密开源库（GmSSL）在Linux、python、Android、java、ios中的应用" class="headerlink" title="关于国密开源库（GmSSL）在Linux、python、Android、java、ios中的应用"></a>关于国密开源库（GmSSL）在Linux、python、Android、java、ios中的应用</h1><h2 id="什么是国密？"><a href="#什么是国密？" class="headerlink" title="什么是国密？"></a>什么是国密？</h2><p>国密即国家密码局认定的国产密码算法。主要有SM1，SM2，SM3，SM4和最新的sm9。在国内环境主要使用的国家密码局认定的算法。</p>
+<p>SM2算法：SM2椭圆曲线公钥密码算法是我国自主设计的公钥密码算法，包括SM2-1椭圆曲线数字签名算法，SM2-2椭圆曲线密钥交换协议，SM2-3椭圆曲线公钥加密算法，分别用于实现数字签名密钥协商和数据加密等功能。SM2算法与RSA算法不同的是，SM2算法是基于椭圆曲线上点群离散对数难题，相对于RSA算法，256位的SM2密码强度已经比2048位的RSA密码强度要高。</p>
+<p><strong>其实就是类似RSA算法，但是大家都知道，RSA算法位数要求已经在2048以上了，SM2不同的是可以使用较少的位数保证较强的密码强度。</strong></p>
+<p>SM3算法，SM3杂凑算法是我国自主设计的密码杂凑算法，适用于商用密码应用中的数字签名和验证消息认证码的生成与验证以及随机数的生成，可满足多种密码应用的安全需求。为了保证杂凑算法的安全性，其产生的杂凑值的长度不应太短，例如MD5输出128比特杂凑值，输出长度太短，影响其安全性SHA-1算法的输出长度为160比特，SM3算法的输出长度为256比特，因此SM3算法的安全性要高于MD5算法和SHA-1算法。</p>
+<p><strong>与md5相似，但是比md5更长，具有更高的安全性。</strong></p>
+<p>SM4算法：分组密码算法是我国自主设计的分组对称密码算法，用于实现数据的加密/解密运算，以保证数据和信息的机密性。要保证一个对称密码算法的安全性的基本条件是其具备足够的密钥长度，SM4算法与AES算法具有相同的密钥长度分组长度128比特，因此在安全性上高于3DES算法。</p>
+<p><strong>与AES相似。</strong></p>
+<p>SM9算法：是由国密局发布的一种IBE(Identity-Based Encryption)算法。IBE算法以用户的身份标识作为公钥，不依赖于数字证书。</p>
+<p><strong>一种新型的公私钥算法，基于身份标识的。</strong></p>
+<h2 id="openssl的编程初探"><a href="#openssl的编程初探" class="headerlink" title="openssl的编程初探"></a>openssl的编程初探</h2><p>在算法实现中，不免要使用openssl库来进行操作，openssl 很强大，提供了健壮的，全功能的加密套件。</p>
+<p><a href="https://www.openssl.org/" target="_blank" rel="noopener">openssl官网</a></p>
+<p>有兴趣的同学可以详细去学习下，openssl有着大量的API可以使用，可以实现大量的密码算法。</p>
+<h2 id="开源算法（gmsll-org）"><a href="#开源算法（gmsll-org）" class="headerlink" title="开源算法（gmsll.org）"></a>开源算法（gmsll.org）</h2><p>这里我使用的是北京大学<a href="https://github.com/guanzhi" target="_blank" rel="noopener">关志</a>副研究员的密码学研究组开发维护的<a href="http://gmssl.org/" target="_blank" rel="noopener">GmSSL</a>,此项目上openssl的分支，可以替代openssl，并增加了对国密的支持.</p>
+<p>在网上找了很多关于此开源库的使用方法，都不是很明白，我对这个项目的使用方法做一个总结，可以支持在多个平台上使用。</p>
+<h2 id="下面我们来看看具体的使用方法"><a href="#下面我们来看看具体的使用方法" class="headerlink" title="下面我们来看看具体的使用方法"></a>下面我们来看看具体的使用方法</h2><p>示例代码可以在<a href="">github</a>上面可以下载得到，给出了测试代码，可以直接进行下载调试，主要实现的是<strong>sm2的加解密</strong>，<strong>sm4的加解密</strong>，欢迎star。<br>使用方法都是：</p>
+<ol>
+<li>编译GmSSL库，得到对应的文件。</li>
+<li>引用文件。</li>
+<li>使用对应语言调用。</li>
+</ol>
+<p>编译环境为（macbook + ubuntu虚拟机）</p>
+<h3 id="evp-api"><a href="#evp-api" class="headerlink" title="evp api"></a>evp api</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>首先是 <strong>EVP API</strong>，这是对GmSSL接口的一个封装，隐藏了API实现的细节，提供了一个抽象的，统一的接口。我们可以借助这个接口来实现其他平台的使用。</p>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>我在Ubuntu环境下面<br><code>./config</code><br><code>make</code><br>make成功后，生成 libcrypto.so.1.1 和 libssl.so.1.1<br>在code文件夹下面，编写自己的sm4.c,utils.c,sm2.c<br>然后利用下面的代码进行编译。<br><code>gcc -Wall code/sm4.c code/sm2.c code/utils.c -o my_gmssl -lssl -lcrypto -L. -I include -I apps -I . -L /usr/lib/ssl</code></p>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>编写测试代码：<br><img src="media/15426078151794.jpg" alt="-w652"></p>
+<p>运行结果：<br><img src="media/15426077534504.jpg" alt="-w698"><br>测试成功。</p>
+<h3 id="java-API的使用方法（Android）"><a href="#java-API的使用方法（Android）" class="headerlink" title="java API的使用方法（Android）"></a>java API的使用方法（Android）</h3><h4 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h4><p>在Android里面调用这个库的方法，主要是通过编译.so动态链接库的方式进行引用。在官方的<a href="https://github.com/guanzhi/GmSSL/blob/master/java/" target="_blank" rel="noopener">github</a>中，已经给出了相关代码，但是缺少了ndk编译过程。</p>
+<h4 id="编译-1"><a href="#编译-1" class="headerlink" title="编译"></a>编译</h4><h4 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h4><p>有些手机里面并不支持，.so.1.1的soname，所以在引用libssl.so.1.1 和libcrypto.so.1.1的时候出现了问题，解决方法是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readelf -d libssl.so.1.1</span><br></pre></td></tr></table></figure></p>
+<h3 id="python-调用方法"><a href="#python-调用方法" class="headerlink" title="python 调用方法"></a>python 调用方法</h3><h4 id="坑-1"><a href="#坑-1" class="headerlink" title="坑"></a>坑</h4><p>当使用memcpy或者strcpy进行复制结果字符串时，在c语言里面运行正常，但是引入到python里面的时候会出现多一位或几位字符的情况，所以输出结果转换成了16进制字符串，这样结果就稳定了。</p>
+<h3 id="ios使用方法"><a href="#ios使用方法" class="headerlink" title="ios使用方法"></a>ios使用方法</h3><h3 id="nodejs使用方法"><a href="#nodejs使用方法" class="headerlink" title="nodejs使用方法"></a>nodejs使用方法</h3><h4 id="坑-2"><a href="#坑-2" class="headerlink" title="坑"></a>坑</h4><p>c++ 编译bug，sm2 bug</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gurdzain.github.io/2018/11/06/关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用/" data-id="cjo5s88bl000045xcixvi4oz7" class="article-share-link">Share</a>
+      <a data-url="https://i9n0re.github.io/2018/11/06/关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用/" data-id="cjo5s88bl000045xcixvi4oz7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -162,7 +194,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 Gurdzain<br>
+      &copy; 2018 i9n0re<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

